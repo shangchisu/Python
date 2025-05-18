@@ -1,15 +1,16 @@
-def calculate_bmi(h:int | float ,w:int):
-    bmi = w / (h / 100) **2
-    return bmi
+def calculate_bmi(hight:int ,weight:int):
+    if hight < 120 or hight > 220:
+            raise Exception("未在規定範圍(120~220cm間)，請重新輸入") #自己身高raise錯誤
+    if weight < 30 or weight > 200:
+            raise Exception("未在規定範圍(30~200kg間)，請重新輸入") #自己體重raise錯誤
+    
+    bmicalculate = weight / (hight / 100) **2
+    return bmicalculate
 
 def main():
     try:
         hight: int = int (input("請輸入您的身高(120~220cm間)"))
-        if hight < 120 or hight > 220:
-            raise Exception("未在規定範圍(120~220cm間)，請重新輸入") #自己身高raise錯誤
         weight: int = int (input("請輸入您的體重(30~200kg間)"))
-        if weight < 30 or weight > 200:
-            raise Exception("未在規定範圍(30~200kg間)，請重新輸入") #自己體重raise錯誤
         bmi = calculate_bmi(hight,weight)
         
     except ValueError:
