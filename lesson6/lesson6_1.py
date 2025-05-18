@@ -7,6 +7,18 @@ def calculate_bmi(hight:int ,weight:int):
     bmicalculate = weight / (hight / 100) **2
     return bmicalculate
 
+def get_state(bmi:float):
+    if bmi>=27:
+        message = "太胖了，需要克制飲食與多運動"
+    elif bmi>=24:
+        massage = "過重，需要運動!"
+    elif bmi<18.5:
+        massage = "過輕，不要挑食多吃營養的食物"
+    else:
+        massage = "正常，太棒了!"
+    return massage
+     
+
 def main():
     try:
         hight: int = int (input("請輸入您的身高(120~220cm間)"))
@@ -21,15 +33,8 @@ def main():
         print(f"身高(公分):{hight}")
         print(f"體重(公斤):{weight}")
         print(f"bmi{bmi:.1f}")
-        
-        if bmi>=27:
-            print("太胖了，需要克制飲食與多運動")
-        elif bmi>=24:
-            print("過重，需要運動!")
-        elif bmi<18.5:
-            print("過輕，不要挑食多吃營養的食物")
-        else:
-            print("正常，太棒了!")
+        print(get_state(bmi))
+         
     print("應用程式結束")
 #內建變數
 if __name__ == "__main__":
